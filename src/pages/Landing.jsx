@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router";
 
-// ─── CSS-in-JS styles as a string injected once ───────────────────────────────
 const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -21,17 +21,17 @@ const GLOBAL_CSS = `
     --radius-sm: 10px;
   }
   [data-theme="dark"] {
-    --orange-bg: rgba(224,94,30,0.18);
-    --bg: #1a1008;
-    --surface: rgba(40,22,10,0.85);
-    --surface-solid: #2a1a0c;
-    --border: rgba(200,130,80,0.18);
-    --border-solid: #3a2518;
-    --text: #f5ede6;
-    --text-muted: #c4a08a;
-    --text-light: #8a6050;
-    --shadow: 0 2px 16px rgba(0,0,0,0.35);
-    --shadow-md: 0 4px 28px rgba(0,0,0,0.45);
+    --orange-bg: rgba(224,94,30,0.15);
+    --bg: #0f172a;
+    --surface: rgba(15,23,42,0.85);
+    --surface-solid: #1e293b;
+    --border: rgba(148,163,184,0.12);
+    --border-solid: #334155;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-light: #64748b;
+    --shadow: 0 2px 16px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 28px rgba(0,0,0,0.55);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -56,6 +56,12 @@ const GLOBAL_CSS = `
       radial-gradient(ellipse 50% 40% at 50% 50%, rgba(253,230,200,0.18) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
+  }
+  [data-theme="dark"] #janseva-root::before {
+    background:
+      radial-gradient(ellipse 70% 60% at 15% 20%, rgba(59,130,246,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 80%, rgba(99,102,241,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(30,41,59,0.4) 0%, transparent 70%);
   }
   #janseva-root > * { position: relative; z-index: 1; }
 
@@ -409,7 +415,6 @@ function useCounter(target, decimals = 0, active = false) {
   return value;
 }
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
 
 function LocationIcon() {
   return (
@@ -420,6 +425,7 @@ function LocationIcon() {
 }
 
 function Navbar({ theme, onToggleTheme }) {
+  const navigate = useNavigate();
   return (
     <nav className="js-nav">
       <a href="#" className="js-nav-brand">
@@ -438,7 +444,7 @@ function Navbar({ theme, onToggleTheme }) {
           <span>{theme === "dark" ? "☀️" : "🌙"}</span>
           <span>{theme === "dark" ? "Light" : "Dark"}</span>
         </button>
-        <a href="#" className="js-btn-login">Continue to Login →</a>
+        <button className="js-btn-login" onClick={() => navigate('/login')}>Continue to Login →</button>
       </div>
     </nav>
   );
@@ -474,6 +480,7 @@ function HeroCard() {
 }
 
 function Hero() {
+  const navigate = useNavigate();
   return (
     <div className="js-hero">
       <div>
@@ -487,7 +494,7 @@ function Hero() {
           view to keep communities moving.
         </p>
         <div className="js-hero-actions">
-          <a href="#" className="js-btn-primary">Continue to Login →</a>
+          <button className="js-btn-primary" onClick={() => navigate('/login')}>Continue to Login →</button>
           <a href="#how" className="js-btn-ghost">Get Started</a>
         </div>
       </div>
@@ -512,10 +519,10 @@ function StatCell({ target, suffix, decimals = 0, label, active }) {
 
 function Stats() {
   const stats = [
-    { target: 2400, suffix: "+", label: "Issues Reported" },
-    { target: 86, suffix: "%", label: "Resolution Rate" },
-    { target: 3.2, suffix: " days", decimals: 1, label: "Avg. Fix Time" },
-    { target: 3, suffix: " Roles", label: "Citizen · Engineer · Admin" },
+    { target: 3, suffix: " Roles", label: "Citizen · Engineer · Supervisor" },
+    { target: 4, suffix: " Stages", label: "Reported → Assigned → In Progress → Resolved" },
+    { target: 1, suffix: " AI Model", label: "Gemini Priority Scoring" },
+    { target: 100, suffix: "% Offline", label: "Auto-sync when back online" },
   ];
   return (
     <div className="js-section" style={{ paddingTop: 0 }}>
@@ -564,6 +571,7 @@ function HowItWorks() {
 
 function Features() {
   const ref = useRef(null);
+  const navigate = useNavigate();
   const visible = useInView(ref);
   const feats = [
     { icon: "🤖", title: "AI Priority Prediction", desc: "Gemini AI reads each description and scores urgency — so critical failures get escalated automatically." },
@@ -598,7 +606,7 @@ function Features() {
           <h2>Ready to improve your neighbourhood?</h2>
           <p>File your first issue in under 2 minutes.</p>
         </div>
-        <a href="#" className="js-btn-white">Continue to Login →</a>
+        <a href="#" className="js-btn-white" onClick={(e) => { e.preventDefault(); navigate('/login'); }}>Continue to Login →</a>
       </div>
     </div>
   );
@@ -632,20 +640,24 @@ function Footer() {
   );
 }
 
-// ─── Root App ─────────────────────────────────────────────────────────────────
 export function Landing() {
   const [theme, setTheme] = useState("light");
 
-  // Inject global CSS once
   useEffect(() => {
-    if (document.getElementById("janseva-styles")) return;
-    const style = document.createElement("style");
-    style.id = "janseva-styles";
-    style.textContent = GLOBAL_CSS;
-    document.head.appendChild(style);
+    const existing = document.getElementById("janseva-styles");
+    if (!existing) {
+      const style = document.createElement("style");
+      style.id = "janseva-styles";
+      style.textContent = GLOBAL_CSS;
+      document.head.appendChild(style);
+    }
+    return () => {
+      const el = document.getElementById("janseva-styles");
+      if (el) el.remove();
+      document.documentElement.removeAttribute("data-theme");
+    };
   }, []);
 
-  // Sync theme attribute on <html>
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
