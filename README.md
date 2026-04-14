@@ -1,7 +1,5 @@
-<img width="1905" height="913" alt="Screenshot 2026-04-14 225533" src="https://github.com/user-attachments/assets/74329691-3be5-4d5a-8aa7-e7030f1e7d87" /># JANSEVA-INFRA
+# JANSEVA-INFRA
 ## Civic Issue Reporting System
-
-![Project Logo or Banner](https://via.placeholder.com/800x200?text=Civic+Issue+Reporting+System)
 
 A comprehensive web application for citizens to report civic issues, track their status, and for authorities to manage and resolve them. Built with modern web technologies for offline-first functionality, real-time updates, and AI-powered priority assessment.
 
@@ -69,34 +67,34 @@ graph TB
 ## 📸 Screenshots
 
 ### Landing Page
-![Landing Page]<img width="1407" height="856" alt="Screenshot 2026-04-14 224900" src="https://github.com/user-attachments/assets/d1795645-5dab-4e20-b5e2-d8b64a5e3092" />
+<img width="1407" height="856" alt="Screenshot 2026-04-14 224900" src="https://github.com/user-attachments/assets/d1795645-5dab-4e20-b5e2-d8b64a5e3092" />
 
 
 ### Login Page
-![Login Page]<img width="884" height="912" alt="Screenshot 2026-04-14 224935" src="https://github.com/user-attachments/assets/74dbec76-4481-48f9-bfad-da0a3e8e1d69" />
+<img width="884" height="912" alt="Screenshot 2026-04-14 224935" src="https://github.com/user-attachments/assets/74dbec76-4481-48f9-bfad-da0a3e8e1d69" />
 
 
 ### Dashboard
-![Dashboard]<img width="1875" height="913" alt="Screenshot 2026-04-14 225023" src="https://github.com/user-attachments/assets/b01525b2-0f0c-465c-8e2e-5d3d0b9b45d6" />
+<img width="1875" height="913" alt="Screenshot 2026-04-14 225023" src="https://github.com/user-attachments/assets/b01525b2-0f0c-465c-8e2e-5d3d0b9b45d6" />
 
 
 ### Report Issue
-![Report Issue]<img width="1906" height="891" alt="Screenshot 2026-04-14 225054" src="https://github.com/user-attachments/assets/209dfd6d-04b5-46b5-ae23-5008650ee7d0" />
+<img width="1906" height="891" alt="Screenshot 2026-04-14 225054" src="https://github.com/user-attachments/assets/209dfd6d-04b5-46b5-ae23-5008650ee7d0" />
 
 ### My Issues
-![My Issues]<img width="1887" height="789" alt="Screenshot 2026-04-14 225139" src="https://github.com/user-attachments/assets/b87b19bf-ae0a-467c-9fbf-d6306e315986" />
+<img width="1887" height="789" alt="Screenshot 2026-04-14 225139" src="https://github.com/user-attachments/assets/b87b19bf-ae0a-467c-9fbf-d6306e315986" />
 
 
 ### Assigned Issues (Engineer)
-![Assigned Issues]<img width="1910" height="768" alt="Screenshot 2026-04-14 225250" src="https://github.com/user-attachments/assets/6b779b66-179b-4528-a22d-c81c146650f4" />
+<img width="1910" height="768" alt="Screenshot 2026-04-14 225250" src="https://github.com/user-attachments/assets/6b779b66-179b-4528-a22d-c81c146650f4" />
 
 
 ### Map View
-![Map View]<img width="1905" height="913" alt="Screenshot 2026-04-14 225533" src="https://github.com/user-attachments/assets/dcfff5e1-1908-4081-91ea-241d180f61e8" />
+<img width="1905" height="913" alt="Screenshot 2026-04-14 225533" src="https://github.com/user-attachments/assets/dcfff5e1-1908-4081-91ea-241d180f61e8" />
 
 
 ### Issue Details
-![Issue Details]<img width="1868" height="886" alt="Screenshot 2026-04-14 225342" src="https://github.com/user-attachments/assets/7286ed91-8d48-45c4-97a3-567e5eb06071" />
+<img width="1868" height="886" alt="Screenshot 2026-04-14 225342" src="https://github.com/user-attachments/assets/7286ed91-8d48-45c4-97a3-567e5eb06071" />
 
 
 ## 🔧 Prerequisites
