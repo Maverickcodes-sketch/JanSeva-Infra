@@ -6,7 +6,7 @@ A comprehensive web application for citizens to report civic issues, track their
 ## 🚀 Tech Stack
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=react,vite,firebase,supabase,tailwindcss,materialui,leaflet,nodejs" alt="Tech Stack" />
+  <img src="https://skillicons.dev/icons?i=react,vite,firebase,supabase,tailwindcss" alt="Tech Stack" />
 </p>
 
 - **Frontend**: React 18, Vite
@@ -34,6 +34,7 @@ A comprehensive web application for citizens to report civic issues, track their
 
 ## 🏗️ Architecture Diagram
 
+```mermaid
 graph TB
     A[User] --> B[React Frontend]
 
@@ -63,6 +64,7 @@ graph TB
         O --> D
         O --> F
     end
+```
 
 ## 📸 Screenshots
 
